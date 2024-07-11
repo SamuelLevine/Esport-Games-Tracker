@@ -1,26 +1,13 @@
-table {
-    border-collapse: collapse;
-    width: 100%;
+#leaguetable {
+    width: 75%;
+    background-color: yellow;
+    padding: 1px;
 }
 
-table td,
-table th {
-    border: 1px solid #ddd;
-    padding: 0.5em;
+#leaguetable th, td{
+    border: 1px solid purple;
 }
 
-table tr:nth-child(2n) {
-    background-color: #f2f2f2;
-}
-
-table tr:hover {
-    background-color: #ddd;
-}
-
-table th {
-    padding-top: 1em;
-    padding-bottom: 1em;
-    text-align: left;
-    background-color: dodgerblue;
-    color: white;
+#leaguetable td{
+    padding: 5px;
 }

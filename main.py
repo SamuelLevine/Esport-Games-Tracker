@@ -13,7 +13,7 @@ driver.get(url)
 data = []
 
 # Automatically scroll the page
-scroll_pause_time = 2  # Pause between each scroll
+scroll_pause_time = 1  # Pause between each scroll
 screen_height = driver.execute_script("return window.screen.height;")  # Browser window height
 i = 1
 while True:
@@ -54,7 +54,6 @@ for link in links:
 #Input the data into a data frame and send it to a csv
 df = pd.DataFrame(data)
 df.to_csv("matches.csv")
-print('Scraped all matches successfully')
 
 # Inital testing to get match links and find teams by parsing the new links
 """
@@ -102,7 +101,7 @@ while sorted == False:
     if "https" in matchesSeries[i]:
         break
     #Check if the row is a date, if so add it to the dates_array
-    if "2024" in matchesSeries[i]:
+    if "202" in matchesSeries[i]:
         dates_array[dates_index] = matchesSeries[i]
         i += 1
         continue
@@ -118,6 +117,8 @@ while sorted == False:
         team2_index += 1
         isFirstTeam = True
         dates_index += 1
+        #Make the date column empty if match is on the same day as previous match
+        dates_array[dates_index] = ' '
         i += 1
         continue
 
@@ -145,5 +146,5 @@ df = pd.DataFrame({'Dates': dates_series, 'Team 1': team1_series, 'Team 2': team
 #Cut any rows from the dataframe that have a '0' in the 'Team 1' column, meaning the rows is empty
 df = df[df["Team 1"] != 0]
 #Convert the dataframe to a csv
-df.to_csv("organizedmatches.csv")
-print('Organized matches into a csv successfully')
+#df.to_csv("organizedmatches.csv")
+df.to_html("matchtable.html", index = False)

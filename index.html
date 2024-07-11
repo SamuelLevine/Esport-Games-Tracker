@@ -6,13 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sam's Esports Schedule</title>
     <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="app.js"></script>
   </head>
   <body>
     <main>
-      <h1>Welcome to My Website</h1>
-      <input type="file" id="file">
-      <table id="table"></table>
-      <script src="app.js"></script>
+      <h1>Upcoming Professional League of Legends Matches</h1>
+      <div id="leaguetable" w3-include-html="matchtable.html"></div>
+      <script>
+        includeHTML();
+      </script>
     </main>
   </body>
 </html>
